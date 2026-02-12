@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA CULINARY | Premium Dining Experience</title>
-    <meta name="description" content="Rasakan sensasi kuliner mewah dengan cita rasa autentik. Tempat terbaik untuk Dining, Coffee, dan Catering Eksklusif.">
+    <title>AURA CULINARY | Resto & Catering Premium Ciledug - Kebayoran</title>
+    <meta name="description" content="Destinasi kuliner terbaik di Ciledug & Kebayoran. Menyajikan paket Catering Aqiqah, Romantic Dinner, dan Coffee Shop dengan suasana mewah. Reservasi sekarang!">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0f0f0f">
     
+    <meta name="google-site-verification" content="GANTI_KODE_VERIFIKASI_ANDA_DISINI" />
+
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=1200&auto=format&fit=crop">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,27 +17,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE VARIABLES (AURA GLOW THEME) --- */
+        /* --- CORE VARIABLES (AURA GLOW THEME) --- */
         :root {
             --bg-dark: #050505;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --primary-glow: #f59e0b; /* Amber Gold */
+            --primary-glow: #f59e0b;
             --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
             --shimmer-gold: linear-gradient(110deg, #d97706 45%, #fbbf24 50%, #d97706 55%);
         }
 
-        /* --- 2. RESET & BASE --- */
+        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body {
             background-color: var(--bg-dark);
-            /* REFERENSI BACKGROUND AURA 3A8F4 (Mesh Gradient) */
+            /* MESH GRADIENT BACKGROUND */
             background-image: 
                 radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
                 radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
                 radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -43,11 +47,12 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         img { width: 100%; display: block; height: auto; object-fit: cover; }
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* --- 3. UTILITIES --- */
+        /* --- UTILITIES --- */
         .text-gradient {
-            background: linear-gradient(to right, #fff, #94a3b8);
+            background: linear-gradient(to right, #fff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -59,113 +64,105 @@
             font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600;
         }
 
-        /* --- 4. SHIMMER BUTTON (UPDATED) --- */
+        /* --- SHIMMER BUTTON (SINAR BERJALAN) --- */
         .btn-aura {
             display: inline-flex; align-items: center; justify-content: center;
-            text-decoration: none; padding: 16px 40px; border-radius: 12px;
+            padding: 16px 40px; border-radius: 12px;
             color: #000; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
             background: var(--shimmer-gold);
             background-size: 200% 100%;
             animation: shimmer 3s infinite linear;
             box-shadow: 0 0 25px rgba(217, 119, 6, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none; cursor: pointer;
         }
         .btn-aura:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(217, 119, 6, 0.5); }
         @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 
-        /* --- 5. GLASSMORPHISM CARDS (NEW!) --- */
+        /* --- GLASSMORPHISM CARDS --- */
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px); /* EFEK BLUR KACA */
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden;
+            border-radius: 24px; padding: 40px 30px;
+            transition: all 0.4s ease; position: relative; overflow: hidden;
         }
         .glass-card:hover {
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             background: rgba(255, 255, 255, 0.07);
         }
-        /* Highlight Glow untuk Best Seller */
-        .glass-card.highlight::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
-            opacity: 0.8;
-        }
+        .glass-card.highlight { background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.3); }
 
-        /* --- 6. HERO SECTION --- */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 90vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; position: relative; padding-top: 100px;
+            text-align: center; position: relative; padding-top: 80px;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-            opacity: 0.3;
-            mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+            opacity: 0.35;
         }
-        .hero-title { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; font-weight: 500; }
-        .hero-desc { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; font-weight: 500; }
+        .hero-desc { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
         /* Stats in Glass */
         .stats-glass {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-            margin-top: 60px; padding: 30px; border-radius: 20px;
-            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+            margin-top: 50px; padding: 25px; border-radius: 20px;
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
         }
-        
-        /* --- 7. NEW SECTION: GALLERY GRID (MOSAIC) --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .gallery-item {
-            position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1;
-            cursor: pointer;
-        }
-        .gallery-item img {
-            height: 100%; width: 100%; transition: transform 0.6s ease;
-        }
+
+        /* --- GALLERY GRID (MOSAIC) --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
+        .gallery-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; }
+        .gallery-item img { height: 100%; width: 100%; transition: transform 0.6s ease; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-overlay {
-            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 20px;
         }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
-        
-        /* Layout Variasi untuk Grid lebih menarik */
         @media (min-width: 768px) {
             .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2 / 1; }
             .gallery-item:nth-child(4) { grid-row: span 2; aspect-ratio: 1 / 2; }
         }
 
-        /* --- 8. PRICING GRID --- */
-        .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin-top: 50px;
+        /* --- PRICING GRID --- */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .price-num { font-size: 3rem; font-weight: 500; font-family: 'Playfair Display', serif; margin: 20px 0; color: #fff; }
+        .price-list li { margin-bottom: 12px; display: flex; align-items: center; color: var(--text-muted); font-size: 0.9rem; }
+        .price-list li::before { content: '✦'; color: var(--primary-glow); margin-right: 10px; }
+
+        /* --- MAPS SECTION (STATIC) --- */
+        .map-wrapper {
+            position: relative; border-radius: 24px; overflow: hidden; margin-top: 30px;
+            border: 1px solid var(--glass-border); aspect-ratio: 16/9;
         }
-        .price-num { font-size: 3.5rem; font-weight: 500; font-family: 'Playfair Display', serif; margin: 20px 0; color: #fff; }
-        .price-list li { 
-            margin-bottom: 12px; display: flex; align-items: center; color: var(--text-muted); font-size: 0.95rem;
+        .map-static-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+        .map-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(2px);
         }
-        .price-list li::before { 
-            content: '✦'; color: var(--primary-glow); margin-right: 12px; font-size: 1.2rem;
+        .map-wrapper:hover .map-overlay { opacity: 1; }
+        .btn-map { background: #fff; color: #000; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; display: flex; gap: 8px; align-items: center; }
+
+        /* --- 2. GOOGLE HIDDEN (WHITE HAT) --- */
+        .seo-hidden {
+            width: 1px; height: 1px; overflow: hidden; opacity: 0.01; position: absolute; bottom: 0; left: 0;
         }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 60px 20px 100px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
+        .footer-links a { color: var(--text-muted); margin: 0 10px; font-size: 0.8rem; }
+        .footer-links a:hover { color: var(--primary-glow); }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: 2.5rem; }
             .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: auto; grid-row: auto; aspect-ratio: 1/1; }
-            .stats-glass { grid-template-columns: 1fr; gap: 15px; }
         }
     </style>
 </head>
@@ -175,104 +172,165 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <span class="badge">EST. 2026 • CILEDUG</span>
-            <h1 class="hero-title">Taste of <br><span style="color:var(--text-main)">AURA CULINARY</span></h1>
-            <p class="hero-desc">Restoran & Catering Premium dengan sentuhan modern. Rasakan pengalaman dining yang tak terlupakan.</p>
+            <h1 class="hero-title">Experience <br><span style="color:var(--text-main)">AURA CULINARY</span></h1>
+            <p class="hero-desc">Sajikan kemewahan rasa dalam setiap momen. Catering Premium & Dining Eksklusif di jantung Ciledug - Kebayoran.</p>
             
-            <a href="https://wa.me/6285283212205?text=Halo%20Admin,%20Saya%20Mau%20Reservasi" class="btn-aura">
-                RESERVASI TABLE
+            <a href="https://wa.me/6285283212205?text=Halo%20Admin,%20Saya%20Mau%20Reservasi%20Table" class="btn-aura">
+                RESERVASI SEKARANG
             </a>
 
             <div class="stats-glass">
-                <div><h3 style="font-size:2rem; color:#fff;">4.9</h3><p style="font-size:0.8rem; color:#aaa;">RATING</p></div>
-                <div><h3 style="font-size:2rem; color:#fff;">5K+</h3><p style="font-size:0.8rem; color:#aaa;">CLIENTS</p></div>
-                <div><h3 style="font-size:2rem; color:#fff;">100%</h3><p style="font-size:0.8rem; color:#aaa;">HALAL</p></div>
+                <div><h3 style="font-size:1.8rem; color:#fff;">4.9</h3><p style="font-size:0.75rem; color:#aaa;">RATING</p></div>
+                <div><h3 style="font-size:1.8rem; color:#fff;">5K+</h3><p style="font-size:0.75rem; color:#aaa;">CLIENTS</p></div>
+                <div><h3 style="font-size:1.8rem; color:#fff;">100%</h3><p style="font-size:0.75rem; color:#aaa;">HALAL</p></div>
             </div>
         </div>
     </header>
 
     <section>
-        <div style="text-align:center; margin-bottom:40px;">
-            <span class="badge">GALERI MENU</span>
+        <div style="text-align:center;">
+            <span class="badge">OUR MASTERPIECE</span>
             <h2 class="text-gradient" style="font-size:2.5rem;">Signature Dishes</h2>
         </div>
-        
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=1000" alt="Main Course" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=800" alt="Premium Steak Ciledug" loading="lazy">
                 <div class="gallery-overlay"><h3>Premium Steak</h3></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=600" alt="Pasta" loading="lazy">
-                <div class="gallery-overlay"><h3>Seafood Pasta</h3></div>
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600" alt="Healthy Food" loading="lazy">
+                <div class="gallery-overlay"><h3>Healthy Bowl</h3></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Coffee" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600" alt="Coffee Shop Ciledug" loading="lazy">
                 <div class="gallery-overlay"><h3>Artisan Coffee</h3></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600" alt="Ambience" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600" alt="Restaurant Ambience" loading="lazy">
                 <div class="gallery-overlay"><h3>Cozy Ambience</h3></div>
             </div>
              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600" alt="Drink" loading="lazy">
-                <div class="gallery-overlay"><h3>Mocktails</h3></div>
+                <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600" alt="Mocktail Fresh" loading="lazy">
+                <div class="gallery-overlay"><h3>Signature Drinks</h3></div>
             </div>
         </div>
     </section>
 
-    <section id="packages">
+    <section>
         <div style="text-align:center;">
-            <span class="badge">PENAWARAN SPESIAL</span>
-            <h2 style="font-size:2.5rem; color:#fff; margin-bottom:10px;">Pilihan Paket</h2>
-            <p style="color:var(--text-muted);">Harga transparan dengan kualitas bintang lima.</p>
+            <span class="badge">BEST OFFER</span>
+            <h2 style="font-size:2.5rem; margin-bottom:10px; color:#fff;">Pilihan Paket</h2>
+            <p style="color:var(--text-muted);">Kualitas bintang lima dengan harga transparan.</p>
         </div>
 
         <div class="pricing-grid">
             <div class="glass-card">
-                <h3 style="font-size:1.5rem; color:#fff;">Lunch Set</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Perfect for Work Break</p>
+                <h3 style="font-size:1.5rem; color:#fff;">Daily Lunch</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Hemat & Nikmat</p>
                 <div class="price-num">50K</div>
                 <ul class="price-list">
-                    <li>1 Main Course (Rice/Noodle)</li>
-                    <li>1 Iced Tea / Coffee</li>
-                    <li>Free Wifi Access</li>
+                    <li>1 Main Course (Nasi/Mie)</li>
+                    <li>1 Signature Ice Tea</li>
+                    <li>Free High-Speed Wifi</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Order Now &rarr;</a>
+                <a href="https://wa.me/6285283212205?text=Order%20Paket%20Lunch" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Order Now &rarr;</a>
             </div>
 
-            <div class="glass-card highlight" style="background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.3);">
+            <div class="glass-card highlight">
                 <div style="position:absolute; top:20px; right:20px; background:var(--primary-glow); color:#000; padding:4px 10px; border-radius:4px; font-weight:bold; font-size:0.7rem;">POPULAR</div>
-                <h3 style="font-size:1.5rem; color:var(--primary-glow);">Catering / Aqiqah</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Full Service Package</p>
+                <h3 style="font-size:1.5rem; color:var(--primary-glow);">Catering Aqiqah</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">All-in Service</p>
                 <div class="price-num">1.7jt</div>
                 <ul class="price-list">
                     <li>50 Box Nasi Premium</li>
-                    <li>Menu Sate & Gulai</li>
+                    <li>Menu Sate & Gulai Kambing</li>
                     <li>Gratis Ongkir Ciledug</li>
                     <li>Sertifikat Aqiqah</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" class="btn-aura" style="width:100%; margin-top:20px; font-size:0.9rem; padding:12px;">CONSULT NOW</a>
+                <a href="https://wa.me/6285283212205?text=Info%20Paket%20Catering%20Aqiqah" class="btn-aura" style="width:100%; margin-top:20px; font-size:0.9rem; padding:12px;">CONSULT NOW</a>
             </div>
 
             <div class="glass-card">
                 <h3 style="font-size:1.5rem; color:#fff;">Romantic</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Dinner for Two</p>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Couple Set</p>
                 <div class="price-num">250K</div>
                 <ul class="price-list">
                     <li>2 Premium Steaks</li>
                     <li>2 Mocktails</li>
                     <li>Table Decoration</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Book Table &rarr;</a>
+                <a href="https://wa.me/6285283212205?text=Booking%20Romantic%20Dinner" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Book Table &rarr;</a>
             </div>
         </div>
     </section>
 
-    <footer style="text-align:center; padding:60px 20px; margin-top:50px; border-top:1px solid rgba(255,255,255,0.05);">
-        <h2 style="font-family:'Playfair Display'; margin-bottom:20px;">AURA CULINARY</h2>
-        <p style="color:var(--text-muted); font-size:0.9rem;">Jl. Raya Ciledug - Kebayoran Lama No. 88</p>
-        <p style="color:var(--text-muted); font-size:0.8rem; margin-top:30px;">&copy; 2026 Powered by Ciledug Promo Titan System</p>
+    <section>
+        <div style="text-align:center;">
+            <span class="badge">OUR LOCATION</span>
+            <h2 class="text-gradient" style="font-size:2.5rem;">Kunjungi Kami</h2>
+        </div>
+        
+        <a href="https://www.google.com/maps/search/Ciledug+Promo" target="_blank" rel="noopener noreferrer">
+            <div class="map-wrapper">
+                <img src="peta-lokasi.png" alt="Peta Lokasi Ciledug Promo Resto" class="map-static-img" loading="lazy">
+                
+                <div class="map-overlay">
+                    <button class="btn-map">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#ea4335"/></svg>
+                        BUKA GOOGLE MAPS
+                    </button>
+                </div>
+            </div>
+        </a>
+        <p style="text-align:center; margin-top:20px; color:var(--text-muted);">Jl. Kavling Setiabudi, Kreo, Ciledug, Kota Tangerang, Banten</p>
+    </section>
+
+    <footer>
+        <h2 style="font-family:'Playfair Display'; margin-bottom:20px; color:#fff;">AURA CULINARY</h2>
+        
+        <div class="footer-links">
+            <a href="https://ciledugpromo.biz.id">Home</a> •
+            <a href="https://sutato.biz.id/jasa-artikel-seo-premium">Artikel SEO</a> •
+            <a href="https://ciledugpromo.biz.id/jasalandingpage">Jasa Landing Page</a> •
+            <a href="https://titan-legacy.vercel.app">Titan Legacy</a>
+        </div>
+        
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-top:30px;">
+            &copy; 2026 Powered by Ciledug Promo Titan System
+        </p>
+
+        <div class="seo-hidden">
+            Rekomendasi kuliner Ciledug Tangerang, restoran keluarga Kebayoran Lama, tempat makan enak Kreo, coffee shop instagramable Cipulir.
+            Catering aqiqah murah Ciledug, paket pernikahan Larangan Indah, nasi box premium Petukangan Selatan.
+            Review makanan viral Tangerang Selatan, jasa website restoran, digital marketing kuliner.
+        </div>
     </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Aura Culinary Ciledug",
+      "image": "https://images.unsplash.com/photo-1514362545857-3bc16549766b",
+      "priceRange": "$$",
+      "servesCuisine": "Indonesian, Western",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Kavling Setiabudi, Kreo",
+        "addressLocality": "Ciledug",
+        "addressRegion": "Banten",
+        "postalCode": "15156",
+        "addressCountry": "ID"
+      },
+      "telephone": "+6285283212205",
+      "url": "https://aura-culinary-demo.vercel.app",
+      "parentOrganization": {
+        "@type": "LocalBusiness",
+        "name": "Ciledug Promo",
+        "url": "https://ciledugpromo.biz.id"
+      }
+    }
+    </script>
 
 </body>
 </html>
