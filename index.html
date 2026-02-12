@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA CULINARY | Resto & Catering Premium</title>
+    <title>AURA CULINARY | Premium Dining Experience</title>
     <meta name="description" content="Rasakan sensasi kuliner mewah dengan cita rasa autentik. Tempat terbaik untuk Dining, Coffee, dan Catering Eksklusif.">
     <meta name="theme-color" content="#0f0f0f">
     
@@ -11,145 +11,161 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE VARIABLES (AURA THEME) --- */
+        /* --- 1. CORE VARIABLES (AURA GLOW THEME) --- */
         :root {
             --bg-dark: #050505;
-            --bg-card: #121212;
             --text-main: #ffffff;
-            --text-muted: #a1a1aa;
-            --accent-glow: linear-gradient(45deg, #ff6b6b, #feca57); /* Aura Fire */
-            --border-gradient: linear-gradient(to right, #ff6b6b, #feca57, #48dbfb);
-            --shimmer-gold: linear-gradient(110deg, #e67e22 45%, #f1c40f 50%, #e67e22 55%);
+            --text-muted: #94a3b8;
+            --primary-glow: #f59e0b; /* Amber Gold */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shimmer-gold: linear-gradient(110deg, #d97706 45%, #fbbf24 50%, #d97706 55%);
         }
 
         /* --- 2. RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
         body {
             background-color: var(--bg-dark);
+            /* REFERENSI BACKGROUND AURA 3A8F4 (Mesh Gradient) */
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
-        img { width: 100%; display: block; height: auto; }
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
 
-        /* --- 3. UTILITIES (AURA STYLE) --- */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        img { width: 100%; display: block; height: auto; object-fit: cover; }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+
+        /* --- 3. UTILITIES --- */
         .text-gradient {
-            background: var(--accent-glow);
+            background: linear-gradient(to right, #fff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
         }
         .badge {
-            display: inline-block; padding: 5px 15px; border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;
+            display: inline-block; padding: 6px 16px; border-radius: 50px;
+            background: rgba(245, 158, 11, 0.1); 
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--primary-glow);
+            font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600;
         }
 
-        /* --- 4. SHIMMER BUTTON (SINAR BERJALAN) --- */
+        /* --- 4. SHIMMER BUTTON (UPDATED) --- */
         .btn-aura {
-            display: inline-block; text-decoration: none;
-            padding: 16px 40px; border-radius: 12px;
+            display: inline-flex; align-items: center; justify-content: center;
+            text-decoration: none; padding: 16px 40px; border-radius: 12px;
             color: #000; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
             background: var(--shimmer-gold);
             background-size: 200% 100%;
             animation: shimmer 3s infinite linear;
-            box-shadow: 0 0 20px rgba(230, 126, 34, 0.4);
-            transition: transform 0.2s;
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none; cursor: pointer;
         }
-        .btn-aura:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(230, 126, 34, 0.6); }
-        
-        @keyframes shimmer {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+        .btn-aura:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(217, 119, 6, 0.5); }
+        @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+        /* --- 5. GLASSMORPHISM CARDS (NEW!) --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px); /* EFEK BLUR KACA */
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.07);
+        }
+        /* Highlight Glow untuk Best Seller */
+        .glass-card.highlight::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            opacity: 0.8;
         }
 
-        /* --- 5. HERO SECTION (GRADIENT + STATS) --- */
+        /* --- 6. HERO SECTION --- */
         .hero {
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; position: relative; overflow: hidden;
-            padding-top: 60px;
+            min-height: 90vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; padding-top: 100px;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-            opacity: 0.4;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            opacity: 0.3;
+            mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
         }
-        .hero-content { z-index: 2; max-width: 800px; padding: 20px; }
-        .hero-title { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero-desc { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
-        
-        /* Stats Grid (Aura Reference) */
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-            margin-top: 60px; padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .stat-item h3 { font-size: 2rem; color: #fff; margin-bottom: 5px; }
-        .stat-item p { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; }
+        .hero-title { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; font-weight: 500; }
+        .hero-desc { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* --- 6. FEATURE GRID (IMAGE SHOWCASE) --- */
-        .feature-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-        }
-        .feature-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .feature-img-wrapper {
-            position: relative; border-radius: 20px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .feature-img-wrapper::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
-            z-index: 1;
+        /* Stats in Glass */
+        .stats-glass {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+            margin-top: 60px; padding: 30px; border-radius: 20px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
         }
         
-        /* --- 7. PRICING CARD (GRADIENT BORDER OVERLAY) --- */
-        .pricing-section { text-align: center; }
+        /* --- 7. NEW SECTION: GALLERY GRID (MOSAIC) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            height: 100%; width: 100%; transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 20px;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        
+        /* Layout Variasi untuk Grid lebih menarik */
+        @media (min-width: 768px) {
+            .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2 / 1; }
+            .gallery-item:nth-child(4) { grid-row: span 2; aspect-ratio: 1 / 2; }
+        }
+
+        /* --- 8. PRICING GRID --- */
         .pricing-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px; margin-top: 50px;
         }
-        /* The Aura Gradient Border Magic */
-        .pricing-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 40px 30px;
-            position: relative;
-            z-index: 1;
-            /* Border Trick */
-            background-clip: padding-box; 
-            border: 2px solid transparent;
+        .price-num { font-size: 3.5rem; font-weight: 500; font-family: 'Playfair Display', serif; margin: 20px 0; color: #fff; }
+        .price-list li { 
+            margin-bottom: 12px; display: flex; align-items: center; color: var(--text-muted); font-size: 0.95rem;
         }
-        .pricing-card::before {
-            content: ''; position: absolute; inset: -2px; z-index: -1;
-            border-radius: 22px;
-            background: var(--border-gradient);
-            opacity: 0.3; transition: opacity 0.3s;
+        .price-list li::before { 
+            content: '✦'; color: var(--primary-glow); margin-right: 12px; font-size: 1.2rem;
         }
-        .pricing-card:hover::before { opacity: 1; filter: blur(5px); }
-        
-        .price-tag { font-size: 3rem; font-weight: 700; margin: 20px 0; font-family: 'Playfair Display', serif; }
-        .price-list { list-style: none; margin-bottom: 30px; text-align: left; }
-        .price-list li { margin-bottom: 15px; display: flex; align-items: center; color: var(--text-muted); }
-        .price-list li::before { content: '✓'; color: #feca57; margin-right: 10px; font-weight: bold; }
 
-        /* --- 8. FOOTER --- */
-        footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; color: var(--text-muted); }
-
-        /* --- MOBILE RESPONSIVE --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; gap: 30px; }
-            .pricing-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
+            .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: auto; grid-row: auto; aspect-ratio: 1/1; }
+            .stats-glass { grid-template-columns: 1fr; gap: 15px; }
         }
     </style>
 </head>
@@ -158,103 +174,104 @@
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <span class="badge">✨ The New Taste of Ciledug</span>
-            <h1 class="hero-title">Rasakan Kemewahan <br><span class="text-gradient">AURA CULINARY</span></h1>
-            <p class="hero-desc">Restoran & Catering Premium dengan sentuhan modern. Kami menyajikan lebih dari sekadar makanan, kami menyajikan pengalaman.</p>
+            <span class="badge">EST. 2026 • CILEDUG</span>
+            <h1 class="hero-title">Taste of <br><span style="color:var(--text-main)">AURA CULINARY</span></h1>
+            <p class="hero-desc">Restoran & Catering Premium dengan sentuhan modern. Rasakan pengalaman dining yang tak terlupakan.</p>
             
             <a href="https://wa.me/6285283212205?text=Halo%20Admin,%20Saya%20Mau%20Reservasi" class="btn-aura">
-                RESERVASI SEKARANG
+                RESERVASI TABLE
             </a>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>4.9/5</h3>
-                    <p>Rating Google</p>
-                </div>
-                <div class="stat-item">
-                    <h3>5000+</h3>
-                    <p>Pelanggan Puas</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Halal Certified</p>
-                </div>
+            <div class="stats-glass">
+                <div><h3 style="font-size:2rem; color:#fff;">4.9</h3><p style="font-size:0.8rem; color:#aaa;">RATING</p></div>
+                <div><h3 style="font-size:2rem; color:#fff;">5K+</h3><p style="font-size:0.8rem; color:#aaa;">CLIENTS</p></div>
+                <div><h3 style="font-size:2rem; color:#fff;">100%</h3><p style="font-size:0.8rem; color:#aaa;">HALAL</p></div>
             </div>
         </div>
     </header>
 
     <section>
-        <div class="feature-grid">
-            <div class="feature-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600&auto=format&fit=crop" alt="Premium Dining" loading="lazy" width="600" height="400">
+        <div style="text-align:center; margin-bottom:40px;">
+            <span class="badge">GALERI MENU</span>
+            <h2 class="text-gradient" style="font-size:2.5rem;">Signature Dishes</h2>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=1000" alt="Main Course" loading="lazy">
+                <div class="gallery-overlay"><h3>Premium Steak</h3></div>
             </div>
-            <div class="feature-text">
-                <span class="text-gradient" style="font-size: 0.9rem; letter-spacing: 2px;">AMBIANCE</span>
-                <h2>Suasana Modern & Nyaman</h2>
-                <p style="color:var(--text-muted); margin-bottom: 20px;">
-                    Desain interior yang memukau dengan pencahayaan hangat. Cocok untuk makan malam romantis, meeting bisnis, atau acara keluarga.
-                </p>
-                <ul style="color:var(--text-muted); list-style:none; line-height: 2;">
-                    <li>✨ Private Room Full AC</li>
-                    <li>✨ High-Speed Wifi 100 Mbps</li>
-                    <li>✨ Live Music Acoustic</li>
-                </ul>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=600" alt="Pasta" loading="lazy">
+                <div class="gallery-overlay"><h3>Seafood Pasta</h3></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Coffee" loading="lazy">
+                <div class="gallery-overlay"><h3>Artisan Coffee</h3></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600" alt="Ambience" loading="lazy">
+                <div class="gallery-overlay"><h3>Cozy Ambience</h3></div>
+            </div>
+             <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600" alt="Drink" loading="lazy">
+                <div class="gallery-overlay"><h3>Mocktails</h3></div>
             </div>
         </div>
     </section>
 
-    <section class="pricing-section">
-        <span class="badge">PILIHAN PAKET</span>
-        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Paket Spesial</h2>
-        <p style="color:var(--text-muted);">Pilih penawaran terbaik untuk acara Anda</p>
+    <section id="packages">
+        <div style="text-align:center;">
+            <span class="badge">PENAWARAN SPESIAL</span>
+            <h2 style="font-size:2.5rem; color:#fff; margin-bottom:10px;">Pilihan Paket</h2>
+            <p style="color:var(--text-muted);">Harga transparan dengan kualitas bintang lima.</p>
+        </div>
 
         <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 style="font-size:1.5rem;">Paket Hemat</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Untuk Makan Siang/Nongkrong</p>
-                <div class="price-tag">50K</div>
+            <div class="glass-card">
+                <h3 style="font-size:1.5rem; color:#fff;">Lunch Set</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Perfect for Work Break</p>
+                <div class="price-num">50K</div>
                 <ul class="price-list">
-                    <li>1 Main Course (Nasi/Mie)</li>
-                    <li>1 Signature Drink</li>
-                    <li>Free Refill Tea</li>
-                    <li>Akses Wifi 2 Jam</li>
+                    <li>1 Main Course (Rice/Noodle)</li>
+                    <li>1 Iced Tea / Coffee</li>
+                    <li>Free Wifi Access</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" class="btn-aura" style="padding: 12px 30px; font-size: 0.9rem; width:100%;">ORDER</a>
+                <a href="https://wa.me/6285283212205" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Order Now &rarr;</a>
             </div>
 
-            <div class="pricing-card" style="background: linear-gradient(to bottom, #1e1e1e, #121212);">
-                <div style="position:absolute; top:-15px; right:20px; background:#feca57; color:#000; padding:5px 10px; font-weight:bold; font-size:0.7rem; border-radius:4px;">BEST SELLER</div>
-                <h3 style="font-size:1.5rem;">Catering / Aqiqah</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Solusi Acara di Rumah</p>
-                <div class="price-tag">1.7jt</div>
+            <div class="glass-card highlight" style="background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.3);">
+                <div style="position:absolute; top:20px; right:20px; background:var(--primary-glow); color:#000; padding:4px 10px; border-radius:4px; font-weight:bold; font-size:0.7rem;">POPULAR</div>
+                <h3 style="font-size:1.5rem; color:var(--primary-glow);">Catering / Aqiqah</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Full Service Package</p>
+                <div class="price-num">1.7jt</div>
                 <ul class="price-list">
                     <li>50 Box Nasi Premium</li>
-                    <li>Menu Sate & Gulai Kambing</li>
+                    <li>Menu Sate & Gulai</li>
                     <li>Gratis Ongkir Ciledug</li>
                     <li>Sertifikat Aqiqah</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" class="btn-aura" style="padding: 12px 30px; font-size: 0.9rem; width:100%;">CONSULT</a>
+                <a href="https://wa.me/6285283212205" class="btn-aura" style="width:100%; margin-top:20px; font-size:0.9rem; padding:12px;">CONSULT NOW</a>
             </div>
-            
-            <div class="pricing-card">
-                <h3 style="font-size:1.5rem;">Romantic Dinner</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Untuk Pasangan</p>
-                <div class="price-tag">250K</div>
+
+            <div class="glass-card">
+                <h3 style="font-size:1.5rem; color:#fff;">Romantic</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Dinner for Two</p>
+                <div class="price-num">250K</div>
                 <ul class="price-list">
-                    <li>2 Steak Premium</li>
+                    <li>2 Premium Steaks</li>
                     <li>2 Mocktails</li>
-                    <li>Dekorasi Meja Simple</li>
-                    <li>Foto Polaroid Gratis</li>
+                    <li>Table Decoration</li>
                 </ul>
-                <a href="https://wa.me/6285283212205" class="btn-aura" style="padding: 12px 30px; font-size: 0.9rem; width:100%;">BOOKING</a>
+                <a href="https://wa.me/6285283212205" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Book Table &rarr;</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <h2 class="text-gradient" style="margin-bottom:20px;">AURA CULINARY</h2>
-        <p>Jl. Raya Ciledug - Kebayoran Lama No. 88</p>
-        <p style="margin-top:20px; font-size:0.8rem;">&copy; 2026 Powered by Ciledug Promo Titan System</p>
+    <footer style="text-align:center; padding:60px 20px; margin-top:50px; border-top:1px solid rgba(255,255,255,0.05);">
+        <h2 style="font-family:'Playfair Display'; margin-bottom:20px;">AURA CULINARY</h2>
+        <p style="color:var(--text-muted); font-size:0.9rem;">Jl. Raya Ciledug - Kebayoran Lama No. 88</p>
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-top:30px;">&copy; 2026 Powered by Ciledug Promo Titan System</p>
     </footer>
 
 </body>
