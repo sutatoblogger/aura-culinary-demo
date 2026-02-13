@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CORE VARIABLES (AURA GLOW THEME) --- */
+        /* --- CORE VARIABLES --- */
         :root {
             --bg-dark: #050505;
             --text-main: #ffffff;
@@ -64,7 +64,7 @@
             font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600;
         }
 
-        /* --- SHIMMER BUTTON (SINAR BERJALAN) --- */
+        /* --- SHIMMER BUTTON --- */
         .btn-aura {
             display: inline-flex; align-items: center; justify-content: center;
             padding: 16px 40px; border-radius: 12px;
@@ -114,7 +114,7 @@
             backdrop-filter: blur(10px);
         }
 
-        /* --- GALLERY GRID (MOSAIC) --- */
+        /* --- GALLERY GRID --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
         .gallery-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; }
         .gallery-item img { height: 100%; width: 100%; transition: transform 0.6s ease; }
@@ -135,7 +135,7 @@
         .price-list li { margin-bottom: 12px; display: flex; align-items: center; color: var(--text-muted); font-size: 0.9rem; }
         .price-list li::before { content: '✦'; color: var(--primary-glow); margin-right: 10px; }
 
-        /* --- MAPS SECTION (STATIC) --- */
+        /* --- MAPS SECTION (UPDATED) --- */
         .map-wrapper {
             position: relative; border-radius: 24px; overflow: hidden; margin-top: 30px;
             border: 1px solid var(--glass-border); aspect-ratio: 16/9;
@@ -149,14 +149,16 @@
         .map-wrapper:hover .map-overlay { opacity: 1; }
         .btn-map { background: #fff; color: #000; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; display: flex; gap: 8px; align-items: center; }
 
-        /* --- 2. GOOGLE HIDDEN (WHITE HAT) --- */
+        /* --- GOOGLE HIDDEN (WHITE HAT) --- */
+        /* Teknik: Opacity rendah, bukan display:none (agar tetap di-crawl bot) */
         .seo-hidden {
-            width: 1px; height: 1px; overflow: hidden; opacity: 0.01; position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 1px; overflow: hidden; opacity: 0.01; position: relative; margin-top: 20px;
+            font-size: 10px; color: transparent;
         }
 
         /* --- FOOTER --- */
-        footer { text-align: center; padding: 60px 20px 100px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
-        .footer-links a { color: var(--text-muted); margin: 0 10px; font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px 20px 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
+        .footer-links a { color: var(--text-muted); margin: 0 10px; font-size: 0.8rem; display: inline-block; padding: 5px 0; }
         .footer-links a:hover { color: var(--primary-glow); }
 
         /* --- RESPONSIVE --- */
@@ -233,7 +235,7 @@
                     <li>1 Signature Ice Tea</li>
                     <li>Free High-Speed Wifi</li>
                 </ul>
-                <a href="https://wa.me/6285283212205?text=Order%20Paket%20Lunch" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Order Now &rarr;</a>
+                <a href="https://wa.me/6285283212205?text=Order%20Paket%20Lunch" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Order Now →</a>
             </div>
 
             <div class="glass-card highlight">
@@ -259,7 +261,7 @@
                     <li>2 Mocktails</li>
                     <li>Table Decoration</li>
                 </ul>
-                <a href="https://wa.me/6285283212205?text=Booking%20Romantic%20Dinner" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Book Table &rarr;</a>
+                <a href="https://wa.me/6285283212205?text=Booking%20Romantic%20Dinner" style="display:block; text-align:center; margin-top:30px; color:var(--text-muted); font-size:0.9rem;">Book Table →</a>
             </div>
         </div>
     </section>
@@ -270,7 +272,7 @@
             <h2 class="text-gradient" style="font-size:2.5rem;">Kunjungi Kami</h2>
         </div>
         
-        <a href="https://www.google.com/maps/search/Ciledug+Promo" target="_blank" rel="noopener noreferrer">
+        <a href="https://maps.app.goo.gl/GQYZdgZ3VgUxh9eb7" target="_blank" rel="noopener noreferrer">
             <div class="map-wrapper">
                 <img src="peta-lokasi.png" alt="Peta Lokasi Ciledug Promo Resto" class="map-static-img" loading="lazy">
                 
@@ -289,20 +291,21 @@
         <h2 style="font-family:'Playfair Display'; margin-bottom:20px; color:#fff;">AURA CULINARY</h2>
         
         <div class="footer-links">
-            <a href="https://ciledugpromo.biz.id">Home</a> •
-            <a href="https://sutato.biz.id/jasa-artikel-seo-premium">Artikel SEO</a> •
-            <a href="https://ciledugpromo.biz.id/jasalandingpage">Jasa Landing Page</a> •
-            <a href="https://titan-legacy.vercel.app">Titan Legacy</a>
+            <a href="https://ciledugpromo.biz.id" target="_blank">Home</a> •
+            <a href="https://sutato.biz.id/jasa-artikel-seo-premium" target="_blank">Artikel SEO</a> •
+            <a href="https://titan-legacy.vercel.app" target="_blank">Titan Legacy</a>
         </div>
         
         <p style="color:var(--text-muted); font-size:0.8rem; margin-top:30px;">
-            &copy; 2026 Powered by Ciledug Promo Titan System
+            © 2026 Powered by Ciledug Promo Titan System
         </p>
 
         <div class="seo-hidden">
-            Rekomendasi kuliner Ciledug Tangerang, restoran keluarga Kebayoran Lama, tempat makan enak Kreo, coffee shop instagramable Cipulir.
-            Catering aqiqah murah Ciledug, paket pernikahan Larangan Indah, nasi box premium Petukangan Selatan.
-            Review makanan viral Tangerang Selatan, jasa website restoran, digital marketing kuliner.
+            Rekomendasi kuliner terbaik sepanjang jalan raya Ciledug sampai perbatasan Jakarta Selatan Kebayoran Baru dan Lama.
+            Restoran keluarga enak di Petukangan, Pesanggrahan, dan Cipulir.
+            Tempat makan viral Kreo Batas, cafe instagramable Larangan Indah, catering aqiqah terpercaya Tangerang Selatan.
+            Jalur emas kuliner Ciledug Raya hingga Kebayoran Lama, solusi lapar tengah malam 24 jam.
+            Review makanan, jasa website restoran, digital marketing kuliner Ciledug.
         </div>
     </footer>
 
